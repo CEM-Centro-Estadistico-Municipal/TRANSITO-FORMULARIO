@@ -586,7 +586,7 @@ function guardarActa(){
   }
   rows.push(row);
   try{localStorage.setItem(RKEY,JSON.stringify(rows));}catch(e){}
-  try{fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.assign({},row,{accion:'acta'}))});}catch(e){}
+  try{fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(Object.assign({},row,{accion:'acta'}))});}catch(e){}
   renderStats();renderLog();limpiar(true);
   showToast('Acta #'+nroActa+' registrada','ok');
 }
