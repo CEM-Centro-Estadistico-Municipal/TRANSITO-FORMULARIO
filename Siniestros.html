@@ -3,679 +3,750 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Actas de Comprobación · Tránsito · CEM Esquina</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/lucide-static@latest/font/lucide.css">
+<title>Acta de Siniestros Viales - Esquina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* CEM Esquina design system */
-  --cem-azul:#0e5a9e; --cem-azul-medio:#0a4278; --cem-azul-palido:#ddeaf7;
-  --cem-ocre:#b8863d; --cem-ocre-palido:#f5ecd8;
-  --cem-verde:#3a7a39; --cem-verde-palido:#e6f4e5;
-  --cem-rojo:#c0392b; --cem-rojo-palido:#fbeae8;
-  --bg:#f8f5ee; --surface:#fdfcf8; --surface2:#f1ede4; --border:#d8d0c0;
-  --text:#1a1208; --text2:#5a5040; --text3:#9a8f7a;
-  --sans:'IBM Plex Sans',sans-serif; --serif:'IBM Plex Serif',serif; --mono:'IBM Plex Mono',monospace;
-  --r:8px; --shadow:0 1px 3px rgba(14,90,158,.07); --shadow-md:0 4px 14px rgba(14,90,158,.10);
+  --azul-800:#0a3a68;--azul-700:#0e5a9e;--azul-100:#dce8f5;--azul-50:#eef4fb;
+  --ocre-500:#b8863d;--ocre-200:#e8d0a8;--ocre-100:#f5ead4;
+  --papel:#f8f5ee;--tinta:#171614;
+  --n600:#4a4845;--n400:#8a8784;--n300:#b8b5b0;--n200:#d8d4cc;--n100:#ece8e0;
+  --verde:#2f7d32;--verde-bg:#e8f5e9;
+  --rojo:#a8322c;--rojo-bg:#fdecea;
+  --ambar:#c9971a;--ambar-bg:#fef8e7;
+  --teal:#0d7d74;--teal-bg:#e0f5f3;
+  --violeta:#5b21b6;--violeta-bg:#ede9fe;
+  --sans:'IBM Plex Sans',sans-serif;--mono:'IBM Plex Mono',monospace;
+  --r:8px;--r-sm:4px;--shadow:0 1px 3px rgba(23,22,20,.06);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:80px;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{font-family:var(--sans);background:var(--papel);color:var(--tinta);min-height:100vh;padding-bottom:56px;}
 
-/* HEADER */
-.hdr{background:var(--cem-azul);position:sticky;top:0;z-index:20;box-shadow:0 2px 10px rgba(14,90,158,.22);}
-.hdr-inner{padding:12px 16px;display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--cem-ocre);}
-.hdr-logo{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
-.hdr-logo-top{font-family:var(--mono);font-size:17px;font-weight:500;color:#fff;letter-spacing:.08em;line-height:1;}
-.hdr-logo-sub{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;margin-top:2px;}
-.hdr-divider{width:1px;height:32px;background:rgba(255,255,255,.2);flex-shrink:0;}
-.hdr-text{flex:1;}
-.hdr-title{font-family:var(--sans);font-size:16px;font-weight:600;color:#fff;line-height:1.2;}
-.hdr-badge{display:inline-block;background:var(--cem-ocre);color:#fff;font-family:var(--mono);font-size:9px;font-weight:500;padding:2px 7px;border-radius:4px;letter-spacing:.08em;margin-top:4px;}
-.hdr-date{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.5);padding:5px 16px;background:rgba(0,0,0,.12);letter-spacing:.04em;}
+.hdr{background:var(--azul-800);padding:0 16px;position:sticky;top:0;z-index:20;
+  background-image:repeating-linear-gradient(135deg,rgba(184,134,61,.07) 0,rgba(184,134,61,.07) 1px,transparent 1px,transparent 10px);}
+.hdr-inner{display:flex;align-items:center;gap:10px;padding:12px 0 10px;border-bottom:1px solid rgba(255,255,255,.08);}
+.hdr-badge{background:var(--rojo);color:#fff;font-family:var(--mono);font-size:9px;font-weight:500;padding:3px 8px;border-radius:var(--r-sm);letter-spacing:.1em;flex-shrink:0;}
+.hdr-title{font-size:14px;font-weight:600;color:#fff;flex:1;}
+.hdr-sub{font-size:11px;color:rgba(255,255,255,.45);font-family:var(--mono);padding:7px 0 9px;}
 
-/* CONTAINER */
-.container{padding:14px;display:flex;flex-direction:column;gap:12px;}
+.cfg-mini{margin:14px 14px 0;background:#fff;border:1px solid var(--n200);border-radius:var(--r);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow);}
+.cfg-mini-lbl{font-family:var(--mono);font-size:11px;color:var(--n400);}
+.cfg-mini-ok{color:var(--verde);margin-left:6px;font-weight:600;}
 
-/* STATS */
-.stats{background:var(--cem-azul);border-radius:var(--r);padding:14px 16px;display:grid;grid-template-columns:repeat(3,1fr);box-shadow:var(--shadow-md);position:relative;overflow:hidden;}
-.stats::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--cem-ocre);}
-.st-item{text-align:center;padding:4px 0;}
-.st-item+.st-item{border-left:1px solid rgba(255,255,255,.12);}
-.st-val{font-family:var(--mono);font-size:26px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums;}
-.st-val.a{color:var(--cem-ocre);} .st-val.r{color:#f47c6e;} .st-val.g{color:#6bbf6a;}
-.st-lbl{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.45);margin-top:4px;letter-spacing:.07em;text-transform:uppercase;}
+.stats{margin:10px 14px 0;background:var(--azul-800);border-radius:var(--r);padding:14px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+  background-image:repeating-linear-gradient(135deg,rgba(184,134,61,.06) 0,rgba(184,134,61,.06) 1px,transparent 1px,transparent 10px);}
+.st-item{text-align:center;}
+.st-val{font-family:var(--mono);font-size:22px;font-weight:500;color:#fff;line-height:1;font-feature-settings:'tnum';}
+.st-val.r{color:#f5a49f;}.st-val.a{color:var(--ocre-200);}.st-val.b{color:#93c5fd;}
+.st-lbl{font-size:9px;color:rgba(255,255,255,.4);margin-top:4px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;}
 
-/* CARDS */
-.card{background:var(--surface);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border);}
-.card.accent-azul{border-top:3px solid var(--cem-azul);}
-.card.accent-amarillo{border-top:3px solid var(--cem-ocre);}
-.card.accent-rojo{border-top:3px solid var(--cem-rojo);}
-.card.accent-azul-oscuro{border-top:3px solid var(--cem-azul-medio);}
-.card.accent-verde{border-top:3px solid var(--cem-verde);}
-.card-hdr{padding:10px 14px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
-.card-hdr-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.card-hdr-lbl{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;flex:1;}
-.card-hdr-lbl.azul{color:var(--cem-azul);} .card-hdr-lbl.amarillo{color:var(--cem-ocre);} .card-hdr-lbl.rojo{color:var(--cem-rojo);} .card-hdr-lbl.azul-oscuro{color:var(--cem-azul-medio);}
-.card-hdr-req{font-family:var(--mono);font-size:10px;color:var(--cem-rojo);background:var(--cem-rojo-palido);padding:2px 6px;border-radius:3px;flex-shrink:0;}
-
-/* INPUTS */
-.field{padding:11px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;min-height:50px;}
-.field:last-child{border-bottom:none;}
-.field.col{flex-direction:column;align-items:stretch;gap:6px;}
-.field-lbl{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--text);flex:1;line-height:1.3;}
-.req-mark{color:var(--cem-rojo);margin-left:2px;}
-.field-inp{background:var(--surface2);border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:var(--sans);font-size:13px;padding:7px 10px;outline:none;width:100%;transition:border-color .15s,box-shadow .15s;}
-.field-inp:focus{border-color:var(--cem-azul);background:var(--surface);box-shadow:0 0 0 3px rgba(14,90,158,.12);}
-.field-inp.short{width:150px;}
-.field-inp.invalid{border-color:var(--cem-rojo)!important;background:var(--cem-rojo-palido)!important;box-shadow:0 0 0 2px rgba(192,57,43,.15)!important;}
-textarea.field-inp{resize:vertical;min-height:70px;}
-
-/* ACTUANTES GRID */
-.act-grid{display:grid;grid-template-columns:1fr 1fr;}
-.act-field{padding:10px 14px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+.actuantes{margin:14px 14px 0;background:#fff;border:1px solid var(--teal);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+.actuantes-hdr{background:var(--teal-bg);border-bottom:1px solid var(--teal);padding:9px 14px;display:flex;align-items:center;gap:8px;}
+.actuantes-lbl{font-family:var(--mono);font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:.1em;font-weight:500;}
+.act-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.act-field{padding:10px 14px;border-bottom:1px solid var(--n100);border-right:1px solid var(--n100);}
 .act-field:nth-child(2n){border-right:none;}
 .act-field:nth-last-child(-n+2){border-bottom:none;}
-.act-field-lbl{font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:5px;letter-spacing:.04em;}
+.act-field-lbl{font-size:10px;color:var(--n400);font-family:var(--mono);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;}
+.act-inp{width:100%;background:var(--papel);border:1px solid var(--n200);border-radius:var(--r-sm);color:var(--tinta);font-family:var(--sans);font-size:13px;padding:5px 8px;outline:none;}
+.act-inp:focus{border-color:var(--teal);}
 
-/* OPERATIVO / SINIESTRO */
-.contexto-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px;}
-.contexto-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 10px;border:2px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .15s;background:var(--surface2);}
-.contexto-item:active{transform:scale(.97);}
-.contexto-item.selected-operativo{background:var(--cem-verde-palido);border-color:var(--cem-verde);}
-.contexto-item.selected-siniestro{background:var(--cem-azul-palido);border-color:var(--cem-azul);}
-.contexto-icon{font-size:26px;}
-.contexto-lbl{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--text2);text-align:center;}
-.contexto-item.selected-operativo .contexto-lbl{color:var(--cem-verde);}
-.contexto-item.selected-siniestro .contexto-lbl{color:var(--cem-azul);}
-.contexto-err{font-family:var(--mono);font-size:11px;color:var(--cem-rojo);padding:0 14px 10px;display:none;}
-.contexto-err.show{display:block;}
+.sec{margin:12px 14px 0;background:#fff;border:1px solid var(--n200);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+.sec.rojo{border-color:var(--rojo);}
+.sec.ambar{border-color:var(--ocre-200);}
+.sec.violeta{border-color:#c4b5fd;}
+.sec-hdr{padding:9px 14px;background:var(--papel);border-bottom:1px solid var(--n200);display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.sec.rojo .sec-hdr{background:var(--rojo-bg);border-bottom-color:var(--rojo);}
+.sec.ambar .sec-hdr{background:var(--ocre-100);border-bottom-color:var(--ocre-200);}
+.sec.violeta .sec-hdr{background:var(--violeta-bg);border-bottom-color:#c4b5fd;}
+.sec-hdr-left{display:flex;align-items:center;gap:8px;}
+.sec-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.sec-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;}
+.sec.rojo .sec-lbl{color:var(--rojo);}
+.sec.ambar .sec-lbl{color:var(--ocre-500);}
+.sec.violeta .sec-lbl{color:var(--violeta);}
 
-/* TIPO VEHÍCULO */
-.vehiculo-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:14px;}
-.vehiculo-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;border:2px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .15s;background:var(--surface2);}
-.vehiculo-item:active{transform:scale(.97);}
-.vehiculo-item.selected{background:var(--cem-azul-palido);border-color:var(--cem-azul);}
-.vehiculo-icon{font-size:32px;}
-.vehiculo-lbl{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--text2);text-align:center;}
-.vehiculo-item.selected .vehiculo-lbl{color:var(--cem-azul);}
-.vehiculo-err{font-family:var(--mono);font-size:11px;color:var(--cem-rojo);padding:0 14px 10px;display:none;}
-.vehiculo-err.show{display:block;}
+.field{padding:11px 14px;border-bottom:1px solid var(--n100);display:flex;align-items:center;gap:10px;min-height:50px;}
+.field:last-child{border-bottom:none;}
+.field.col{flex-direction:column;align-items:stretch;gap:6px;}
+.field-lbl{font-size:13px;color:var(--n600);flex:1;line-height:1.3;}
+.field-inp{background:var(--papel);border:1px solid var(--n200);border-radius:var(--r-sm);color:var(--tinta);font-family:var(--sans);font-size:13px;padding:7px 10px;outline:none;width:100%;}
+.field-inp:focus{border-color:var(--azul-700);box-shadow:0 0 0 2px rgba(14,90,158,.1);}
+.field-inp.short{width:160px;}
+.field-inp.sd{opacity:.5;background:var(--n100);}
+textarea.field-inp{resize:vertical;min-height:70px;}
 
-/* TIPO ACTA */
-.tipo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px;}
-.tipo-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 10px;border:2px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .15s;background:var(--surface2);}
-.tipo-item:active{transform:scale(.97);}
-.tipo-item.selected-multa{background:var(--cem-ocre-palido);border-color:var(--cem-ocre);}
-.tipo-item.selected-secuestro{background:var(--cem-rojo-palido);border-color:var(--cem-rojo);}
-.tipo-icon{font-size:26px;}
-.tipo-lbl{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--text2);text-align:center;}
-.tipo-item.selected-multa .tipo-lbl{color:var(--cem-ocre);}
-.tipo-item.selected-secuestro .tipo-lbl{color:var(--cem-rojo);}
-.tipo-err{font-family:var(--mono);font-size:11px;color:var(--cem-rojo);padding:0 14px 10px;display:none;}
-.tipo-err.show{display:block;}
+/* SD button — sin datos */
+.sd-btn{height:24px;padding:0 8px;border-radius:var(--r-sm);border:1px solid var(--n200);background:var(--papel);color:var(--n400);font-family:var(--mono);font-size:10px;cursor:pointer;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;}
+.sd-btn:active{background:var(--n100);}
+.sd-btn.activo{background:var(--n100);border-color:var(--n300);color:var(--n300);text-decoration:line-through;}
 
-/* TOGGLES */
-.tg-wrap{display:flex;gap:5px;flex-shrink:0;}
-.tg-btn{min-width:42px;height:32px;border-radius:4px;border:1px solid var(--border);background:var(--surface2);color:var(--text2);font-family:var(--mono);font-size:12px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s;-webkit-user-select:none;user-select:none;padding:0 8px;}
-.tg-btn.si{background:var(--cem-verde-palido);border-color:var(--cem-verde);color:var(--cem-verde);}
-.tg-btn.no{background:var(--cem-rojo-palido);border-color:var(--cem-rojo);color:var(--cem-rojo);}
+.tg-wrap{display:flex;gap:5px;flex-shrink:0;flex-wrap:wrap;}
+.tg-btn{min-width:44px;height:32px;border-radius:var(--r-sm);border:1px solid var(--n200);background:var(--papel);color:var(--n400);font-size:12px;font-family:var(--mono);font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s;-webkit-user-select:none;user-select:none;padding:0 10px;}
+.tg-btn.si{background:var(--verde-bg);border-color:var(--verde);color:var(--verde);}
+.tg-btn.no{background:var(--rojo-bg);border-color:var(--rojo);color:var(--rojo);}
+.tg-btn.ig{background:var(--ambar-bg);border-color:var(--ambar);color:var(--ambar);}
+.sel-inp{background:var(--papel);border:1px solid var(--n200);border-radius:var(--r-sm);color:var(--tinta);font-family:var(--sans);font-size:13px;padding:5px 8px;outline:none;height:34px;}
+.sel-inp:focus{border-color:var(--azul-700);}
 
-/* DOC */
-.doc-grid{display:grid;grid-template-columns:1fr;}
-.doc-item{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:1px solid var(--border);gap:10px;}
-.doc-item:last-child{border-bottom:none;}
-.doc-lbl{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--text);flex:1;}
+.chk-grid{display:flex;flex-wrap:wrap;gap:6px;padding:2px 0;}
+.chk-item{display:flex;align-items:center;gap:5px;cursor:pointer;-webkit-user-select:none;user-select:none;}
+.chk-box{width:18px;height:18px;border-radius:var(--r-sm);border:1px solid var(--n200);background:var(--papel);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s;}
+.chk-box.on{background:var(--azul-50);border-color:var(--azul-700);}
+.chk-box.on::after{content:'v';font-size:11px;color:var(--azul-700);font-weight:700;}
+.chk-lbl{font-size:12px;color:var(--n600);}
 
-/* SECUESTRO */
-.secuestro-section{display:none;}
-.secuestro-section.visible{display:block;}
-.secuestro-field{padding:11px 14px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:6px;}
-.secuestro-field:last-child{border-bottom:none;}
-.secuestro-field-lbl{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--text2);}
+.veh-block{margin:12px 14px 0;background:#fff;border:1px solid var(--rojo);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+.veh-hdr{background:var(--rojo);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;}
+.veh-hdr-lbl{font-family:var(--mono);font-size:11px;color:#fff;font-weight:500;letter-spacing:.08em;}
+.veh-del{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:var(--r-sm);color:#fff;font-size:11px;padding:3px 10px;cursor:pointer;font-family:var(--mono);}
+.subsec-hdr{padding:8px 14px;background:var(--rojo-bg);border-top:1px dashed rgba(168,50,44,.3);border-bottom:1px solid var(--n100);display:flex;align-items:center;justify-content:space-between;}
+.subsec-lbl{font-family:var(--mono);font-size:10px;color:var(--rojo);text-transform:uppercase;letter-spacing:.08em;}
 
-/* BANNER ERRORES */
-.val-banner{display:none;background:var(--cem-rojo-palido);border:1px solid var(--cem-rojo);border-radius:var(--r);padding:12px 14px;}
-.val-banner.show{display:block;}
-.val-banner-title{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--cem-rojo);margin-bottom:6px;}
-.val-banner ul{list-style:none;display:flex;flex-direction:column;gap:3px;}
-.val-banner li{font-family:var(--mono);font-size:11px;color:var(--cem-rojo);display:flex;align-items:center;gap:6px;}
-.val-banner li::before{content:'→';font-size:10px;}
+.btn-add-veh{background:var(--rojo-bg);border:2px dashed rgba(168,50,44,.4);color:var(--rojo);height:44px;border-radius:var(--r);width:calc(100% - 28px);margin:12px 14px 0;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--sans);}
 
-/* ACCIONES */
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.btn{height:48px;border-radius:var(--r);border:none;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.03em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:opacity .12s,transform .1s;}
-.btn:active{opacity:.85;transform:scale(.98);}
-.btn-save{background:var(--cem-azul);color:#fff;grid-column:1/-1;}
-.btn-clear{background:var(--surface);border:1px solid var(--border);color:var(--text2);}
-.btn-export{background:var(--cem-verde-palido);border:1px solid var(--cem-verde);color:var(--cem-verde);}
+.actions{margin:14px 14px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.btn{height:48px;border-radius:var(--r);border:1px solid var(--n200);font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:opacity .12s;}
+.btn:active{opacity:.8;}
+.btn-save{background:var(--azul-800);border-color:var(--azul-800);color:#fff;grid-column:1/-1;}
+.btn-clear{background:transparent;color:var(--n400);border-color:var(--n200);}
+.btn-export{background:var(--verde-bg);border-color:var(--verde);color:var(--verde);}
 
-/* CONFIG */
-.cfg-note{font-family:var(--mono);font-size:11px;color:var(--text3);padding:10px 14px;line-height:1.6;background:var(--surface2);border-top:1px solid var(--border);}
-.cfg-mini{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;}
-.cfg-mini-lbl{font-family:var(--mono);font-size:11px;color:var(--text3);}
-.cfg-mini-ok{color:var(--cem-verde);font-weight:600;margin-left:6px;}
-.cfg-edit-btn{font-family:var(--mono);font-size:11px;color:var(--text3);background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:4px 10px;cursor:pointer;}
-
-/* LOG */
-.log-title{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;}
-.log-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;margin-bottom:6px;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow);}
+.log-wrap{margin:14px 14px 0;}
+.log-title{font-family:var(--mono);font-size:10px;color:var(--n400);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+.log-item{background:#fff;border:1px solid var(--n200);border-radius:var(--r);padding:10px 12px;margin-bottom:6px;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow);}
 .chips{display:flex;flex-wrap:wrap;gap:4px;flex:1;}
-.chip{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:3px;border:1px solid var(--border);color:var(--text2);background:var(--surface2);}
-.chip.r{background:var(--cem-rojo-palido);border-color:var(--cem-rojo);color:var(--cem-rojo);}
-.chip.g{background:var(--cem-verde-palido);border-color:var(--cem-verde);color:var(--cem-verde);}
-.chip.a{background:var(--cem-ocre-palido);border-color:var(--cem-ocre);color:var(--cem-ocre);}
-.chip.b{background:var(--cem-azul-palido);border-color:var(--cem-azul);color:var(--cem-azul);}
-.chip.t{background:var(--surface2);border-color:var(--border);color:var(--text2);}
-.del-btn{width:28px;height:28px;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text3);cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.chip{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:999px;border:1px solid var(--n200);color:var(--n400);background:var(--papel);}
+.chip.r{background:var(--rojo-bg);border-color:var(--rojo);color:var(--rojo);}
+.chip.g{background:var(--verde-bg);border-color:var(--verde);color:var(--verde);}
+.chip.a{background:var(--ambar-bg);border-color:var(--ambar);color:var(--ambar);}
+.chip.b{background:var(--azul-50);border-color:var(--azul-100);color:var(--azul-700);}
+.chip.t{background:var(--teal-bg);border-color:var(--teal);color:var(--teal);}
+.del-btn{width:28px;height:28px;border-radius:var(--r-sm);border:1px solid var(--n200);background:transparent;color:var(--n300);cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
-/* TOAST */
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--cem-azul);color:#fff;border-radius:999px;padding:10px 22px;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.03em;transition:transform .3s cubic-bezier(.34,1.56,.64,1);z-index:100;white-space:nowrap;pointer-events:none;box-shadow:0 4px 20px rgba(14,90,158,.25);}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--tinta);border-radius:999px;padding:10px 20px;font-size:13px;font-weight:500;color:#fff;transition:transform .3s cubic-bezier(.2,.8,.2,1);z-index:100;white-space:nowrap;pointer-events:none;}
 .toast.show{transform:translateX(-50%) translateY(0);}
-.toast.ok{background:var(--cem-verde);color:#fff;}
-.toast.err{background:var(--cem-rojo);}
-
-/* MODALES */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(14,90,158,.45);z-index:200;align-items:flex-end;justify-content:center;}
-.modal-overlay.show{display:flex;}
-.modal{background:var(--surface);border-radius:12px 12px 0 0;padding:20px;width:100%;max-width:480px;}
-.modal-title{font-family:var(--sans);font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px;}
-.modal-body{font-family:var(--sans);font-size:13px;color:var(--text2);margin-bottom:18px;line-height:1.5;}
-.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.modal-btn{height:44px;border-radius:var(--r);border:none;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;}
-.modal-btn.cancel{background:var(--surface2);color:var(--text2);border:1px solid var(--border);}
-.modal-btn.confirm{background:var(--cem-rojo);color:#fff;}
+.toast.ok{background:var(--verde);}
+.toast.err{background:var(--rojo);}
 </style>
 </head>
 <body>
 
 <div class="hdr">
   <div class="hdr-inner">
-    <div class="hdr-logo">
-      <div class="hdr-logo-top">CEM</div>
-      <div class="hdr-logo-sub">Esquina · Ctes.</div>
-    </div>
-    <div class="hdr-divider"></div>
-    <div class="hdr-text">
-      <div class="hdr-title">Actas de Comprobación</div>
-      <span class="hdr-badge">TRÁNSITO · MUNICIPALIDAD DE ESQUINA</span>
-    </div>
+    <span class="hdr-badge">TRANSITO</span>
+    <span class="hdr-title">Acta de Siniestros Viales &middot; Esquina</span>
   </div>
-  <div class="hdr-date" id="hdr-date">cargando...</div>
+  <div class="hdr-sub" id="hdr-date">cargando...</div>
 </div>
 
-<div class="container">
-
-  <div class="stats">
-    <div class="st-item"><div class="st-val a" id="st-total">0</div><div class="st-lbl">Actas</div></div>
-    <div class="st-item"><div class="st-val r" id="st-secuestro">0</div><div class="st-lbl">c/ Secuestro</div></div>
-    <div class="st-item"><div class="st-val g" id="st-hoy">0</div><div class="st-lbl">Hoy</div></div>
-  </div>
-
-  <!-- ACTUANTES -->
-  <div class="card accent-azul">
-    <div class="card-hdr">
-      <div class="card-hdr-dot" style="background:var(--cem-azul);"></div>
-      <span class="card-hdr-lbl azul">Actuantes — completar en cada acta</span>
-    </div>
-    <div class="act-grid">
-      <div class="act-field"><div class="act-field-lbl">Inspector/a de tránsito</div><input class="field-inp" id="act-inspector" placeholder="Apellido y nombre"></div>
-      <div class="act-field"><div class="act-field-lbl">Legajo inspector/a</div><input class="field-inp" id="act-legajo-insp" placeholder="N° legajo"></div>
-      <div class="act-field"><div class="act-field-lbl">Secretario/a</div><input class="field-inp" id="act-secretario" placeholder="Apellido y nombre"></div>
-      <div class="act-field"><div class="act-field-lbl">Legajo secretario/a</div><input class="field-inp" id="act-legajo-sec" placeholder="N° legajo"></div>
-    </div>
-  </div>
-
-  <!-- CONTEXTO -->
-  <div class="card accent-verde">
-    <div class="card-hdr">
-      <div class="card-hdr-dot" style="background:var(--cem-verde);"></div>
-      <span class="card-hdr-lbl" style="color:var(--cem-verde);">Contexto de la infracción</span>
-      <span class="card-hdr-req">OBLIGATORIO</span>
-    </div>
-    <div class="contexto-grid">
-      <div class="contexto-item" id="ctx-operativo" onclick="setContexto('operativo')">
-        <span class="contexto-icon">🚔</span>
-        <span class="contexto-lbl">OPERATIVO</span>
-      </div>
-      <div class="contexto-item" id="ctx-siniestro" onclick="setContexto('siniestro')">
-        <span class="contexto-icon">⚠️</span>
-        <span class="contexto-lbl">SINIESTRO</span>
-      </div>
-    </div>
-    <div class="contexto-err" id="contexto-err">⚠ Seleccioná el contexto para continuar</div>
-  </div>
-
-  <!-- TIPO DE VEHÍCULO -->
-  <div class="card accent-azul">
-    <div class="card-hdr">
-      <div class="card-hdr-dot" style="background:var(--cem-azul);"></div>
-      <span class="card-hdr-lbl azul">Tipo de Vehículo</span>
-      <span class="card-hdr-req">OBLIGATORIO</span>
-    </div>
-    <div class="vehiculo-grid">
-      <div class="vehiculo-item" id="veh-moto" onclick="setTipoVehiculo('moto')">
-        <span class="vehiculo-icon">🏍️</span>
-        <span class="vehiculo-lbl">MOTO</span>
-      </div>
-      <div class="vehiculo-item" id="veh-auto" onclick="setTipoVehiculo('auto')">
-        <span class="vehiculo-icon">🚗</span>
-        <span class="vehiculo-lbl">AUTO</span>
-      </div>
-      <div class="vehiculo-item" id="veh-otros" onclick="setTipoVehiculo('otros')">
-        <span class="vehiculo-icon">🚛</span>
-        <span class="vehiculo-lbl">OTROS</span>
-      </div>
-    </div>
-    <div id="veh-otros-wrap" style="display:none;padding:0 14px 12px;">
-      <input class="field-inp" id="veh-otros-texto" placeholder="Especificá el tipo de vehículo..." oninput="form.tipo_vehiculo_sel_txt=this.value.trim()">
-    </div>
-    <div class="vehiculo-err" id="vehiculo-err">⚠ Seleccioná el tipo de vehículo para continuar</div>
-  </div>
-
-  <!-- TIPO ACTA -->
-  <div class="card accent-rojo">
-    <div class="card-hdr">
-      <div class="card-hdr-dot" style="background:var(--cem-rojo);"></div>
-      <span class="card-hdr-lbl rojo">Tipo de Acta</span>
-      <span class="card-hdr-req">OBLIGATORIO</span>
-    </div>
-    <div class="tipo-grid">
-      <div class="tipo-item" id="tipo-multa" onclick="setTipoActa('multa')">
-        <span class="tipo-icon">📄</span><span class="tipo-lbl">MULTA</span>
-      </div>
-      <div class="tipo-item" id="tipo-secuestro" onclick="setTipoActa('secuestro')">
-        <span class="tipo-icon">🚫</span><span class="tipo-lbl">SECUESTRO + MULTA</span>
-      </div>
-    </div>
-    <div class="tipo-err" id="tipo-err">⚠ Seleccioná el tipo de acta para continuar</div>
-  </div>
-
-  <!-- SECUESTRO -->
-  <div class="card accent-rojo secuestro-section" id="secuestro-section">
-    <div class="card-hdr">
-      <div class="card-hdr-dot" style="background:var(--cem-rojo);"></div>
-      <span class="card-hdr-lbl rojo">Datos del Vehículo — Secuestro</span>
-    </div>
-    <div class="secuestro-field">
-      <span class="secuestro-field-lbl">Tipo de vehículo <span class="req-mark">*</span></span>
-      <input class="field-inp" type="text" id="f-sec-tipo" placeholder="Moto / Auto / Camioneta...">
-    </div>
-    <div class="secuestro-field">
-      <span class="secuestro-field-lbl">Marca <span class="req-mark">*</span></span>
-      <input class="field-inp" type="text" id="f-sec-marca" placeholder="Ej: Honda">
-    </div>
-    <div class="secuestro-field">
-      <span class="secuestro-field-lbl">Modelo</span>
-      <input class="field-inp" type="text" id="f-sec-modelo" placeholder="Ej: Wave 110">
-    </div>
-    <div class="secuestro-field">
-      <span class="secuestro-field-lbl">Número de chasis <span class="req-mark">*</span></span>
-      <input class="field-inp" type="text" id="f-sec-chasis" placeholder="N° de chasis completo">
-    </div>
-    <div class="secuestro-field">
-      <span class="secuestro-field-lbl">Color</span>
-      <input class="field-inp" type="text" id="f-sec-color" placeholder="Ej: Rojo, Negro, Azul...">
-    </div>
-    <div class="secuestro-field">
-      <span class="secuestro-field-lbl">Número de dominio (Patente)</span>
-      <input class="field-inp" type="text" id="f-sec-dominio" placeholder="Ej: A123BCD o 'no posee'">
-    </div>
-    <div class="secuestro-field" style="background:var(--cem-rojo-palido);">
-      <span class="secuestro-field-lbl" style="color:var(--cem-rojo);font-weight:600;">¿Infractor se niega a firmar?</span>
-      <div class="tg-wrap" style="margin-top:4px;">
-        <div class="tg-btn" onclick="setSecuestroDoc('niega_firmar','SI',this)">SI</div>
-        <div class="tg-btn" onclick="setSecuestroDoc('niega_firmar','NO',this)">NO</div>
-      </div>
-    </div>
-    <div class="secuestro-field" style="background:var(--cem-rojo-palido);">
-      <span class="secuestro-field-lbl" style="color:var(--cem-rojo);">¿Se da a la fuga?</span>
-      <div class="tg-wrap" style="margin-top:4px;">
-        <div class="tg-btn" onclick="setSecuestroDoc('fuga','SI',this)">SI</div>
-        <div class="tg-btn" onclick="setSecuestroDoc('fuga','NO',this)">NO</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DATOS DEL ACTA -->
-  <div class="card accent-amarillo">
-    <div class="card-hdr">
-      <div class="card-hdr-dot" style="background:var(--cem-ocre);"></div>
-      <span class="card-hdr-lbl amarillo">Datos del Acta</span>
-      <span class="card-hdr-req">OBLIGATORIO</span>
-    </div>
-    <div class="field"><span class="field-lbl">N° Acta <span class="req-mark">*</span></span><input class="field-inp short" type="text" id="f-nro-acta" placeholder="Ej: 21507"></div>
-    <div class="field"><span class="field-lbl">Fecha del hecho <span class="req-mark">*</span></span><input class="field-inp short" type="date" id="f-fecha"></div>
-    <div class="field"><span class="field-lbl">Hora del hecho <span class="req-mark">*</span></span><input class="field-inp short" type="time" id="f-hora"></div>
-    <div class="field col"><span class="field-lbl">Dirección del hecho <span class="req-mark">*</span></span><input class="field-inp" type="text" id="f-direccion" placeholder="Calle, intersección, referencia..."></div>
-  </div>
-
-  <!-- CONDUCTOR -->
-  <div class="card accent-azul">
-    <div class="card-hdr">
-      <div class="card-hdr-dot" style="background:var(--cem-azul);"></div>
-      <span class="card-hdr-lbl azul">Conductor / Infractor</span>
-      <span class="card-hdr-req">OBLIGATORIO</span>
-    </div>
-    <div class="field col"><span class="field-lbl">Apellido y nombre <span class="req-mark">*</span></span><input class="field-inp" type="text" id="f-conductor" placeholder="Nombre completo del conductor"></div>
-    <div class="field col"><span class="field-lbl">DNI <span class="req-mark">*</span></span><input class="field-inp" type="text" id="f-dni" placeholder="Número de documento"></div>
-    <div class="field col"><span class="field-lbl">Domicilio</span><input class="field-inp" type="text" id="f-domicilio" placeholder="Dirección completa del infractor"></div>
-  </div>
-
-  <!-- DOCUMENTACIÓN -->
-  <div class="card accent-azul" id="documentacion-section">
-    <div class="card-hdr">
-      <div class="card-hdr-dot" style="background:var(--cem-azul);"></div>
-      <span class="card-hdr-lbl azul">Documentación del conductor</span>
-    </div>
-    <div class="doc-grid">
-      <div class="doc-item"><span class="doc-lbl">¿Posee registro / licencia?</span><div class="tg-wrap"><div class="tg-btn" onclick="setDoc('registro','SI',this)">SI</div><div class="tg-btn" onclick="setDoc('registro','NO',this)">NO</div></div></div>
-      <div class="doc-item"><span class="doc-lbl">¿Usa casco? (si aplica)</span><div class="tg-wrap"><div class="tg-btn" onclick="setDoc('casco','SI',this)">SI</div><div class="tg-btn" onclick="setDoc('casco','NO',this)">NO</div></div></div>
-      <div class="doc-item"><span class="doc-lbl">¿Posee seguro?</span><div class="tg-wrap"><div class="tg-btn" onclick="setDoc('seguro','SI',this)">SI</div><div class="tg-btn" onclick="setDoc('seguro','NO',this)">NO</div></div></div>
-    </div>
-  </div>
-
-  <!-- OBSERVACIONES -->
-  <div class="card accent-azul">
-    <div class="card-hdr">
-      <div class="card-hdr-dot" style="background:var(--cem-azul);"></div>
-      <span class="card-hdr-lbl azul">Observaciones</span>
-    </div>
-    <div class="field col">
-      <span class="field-lbl">Descripción del hecho / Infracciones</span>
-      <textarea class="field-inp" id="f-descripcion" placeholder="Detallar las infracciones observadas, estado del vehículo, etc..." rows="4"></textarea>
-    </div>
-  </div>
-
-  <!-- BANNER ERRORES -->
-  <div class="val-banner" id="val-banner">
-    <div class="val-banner-title">⚠ Completá los campos obligatorios:</div>
-    <ul id="val-lista"></ul>
-  </div>
-
-  <!-- ACCIONES -->
-  <div class="actions">
-    <button class="btn btn-save" onclick="guardarActa()">📋 Registrar acta</button>
-    <button class="btn btn-clear" onclick="pedirLimpiar()">Limpiar</button>
-    <button class="btn btn-export" onclick="exportCSV()">Exportar CSV</button>
-  </div>
-
-  <!-- LOG -->
-  <div id="log-wrap" style="display:none;">
-    <div class="log-title">Actas registradas</div>
-    <div id="log-list"></div>
-  </div>
-
+<div class="cfg-mini">
+  <span class="cfg-mini-lbl">Script<span class="cfg-mini-ok"> configurado</span></span>
 </div>
 
-<!-- MODALES -->
-<div class="modal-overlay" id="modal-borrar">
-  <div class="modal">
-    <div class="modal-title">¿Borrar esta acta?</div>
-    <div class="modal-body">Esta acción no se puede deshacer.</div>
-    <div class="modal-actions">
-      <button class="modal-btn cancel" onclick="cerrarModal('borrar')">Cancelar</button>
-      <button class="modal-btn confirm" onclick="confirmarBorrar()">Sí, borrar</button>
+<div class="stats">
+  <div class="st-item"><div class="st-val r" id="st-total">0</div><div class="st-lbl">Actas</div></div>
+  <div class="st-item"><div class="st-val a" id="st-heridos">0</div><div class="st-lbl">c/ Heridos</div></div>
+  <div class="st-item"><div class="st-val b" id="st-veh">0</div><div class="st-lbl">Vehiculos</div></div>
+</div>
+
+<!-- ACTUANTES -->
+<div class="actuantes">
+  <div class="actuantes-hdr">
+    <div class="sec-dot" style="background:var(--teal);"></div>
+    <span class="actuantes-lbl">Actuantes &mdash; completar en cada acta</span>
+  </div>
+  <div class="act-grid">
+    <div class="act-field">
+      <div class="act-field-lbl">Inspector/a de transito</div>
+      <input class="act-inp" id="act-inspector" placeholder="Apellido y nombre">
+    </div>
+    <div class="act-field">
+      <div class="act-field-lbl">Legajo inspector/a</div>
+      <input class="act-inp" id="act-legajo-insp" placeholder="N legajo">
+    </div>
+    <div class="act-field">
+      <div class="act-field-lbl">Director/a</div>
+      <input class="act-inp" id="act-director" placeholder="Apellido y nombre">
+    </div>
+    <div class="act-field">
+      <div class="act-field-lbl">Legajo director/a</div>
+      <input class="act-inp" id="act-legajo-dir" placeholder="N legajo">
     </div>
   </div>
 </div>
-<div class="modal-overlay" id="modal-limpiar">
-  <div class="modal">
-    <div class="modal-title">¿Limpiar el formulario?</div>
-    <div class="modal-body">Se van a perder todos los datos ingresados en este formulario.</div>
-    <div class="modal-actions">
-      <button class="modal-btn cancel" onclick="cerrarModal('limpiar')">Cancelar</button>
-      <button class="modal-btn confirm" onclick="limpiar()">Sí, limpiar</button>
+
+<!-- DATOS DEL SINIESTRO -->
+<div class="sec rojo" style="margin-top:14px;">
+  <div class="sec-hdr">
+    <div class="sec-hdr-left">
+      <div class="sec-dot" style="background:var(--rojo);"></div>
+      <span class="sec-lbl">Datos del siniestro</span>
     </div>
   </div>
+  <div class="field">
+    <span class="field-lbl">Fecha del siniestro</span>
+    <input class="field-inp short" type="date" id="f-fecha">
+  </div>
+  <div class="field">
+    <span class="field-lbl">Hora del siniestro</span>
+    <input class="field-inp short" type="time" id="f-hora">
+  </div>
+  <div class="field col">
+    <span class="field-lbl">Localidad</span>
+    <input class="field-inp" type="text" id="f-localidad" placeholder="Esquina u otra localidad">
+  </div>
+  <div class="field col">
+    <span class="field-lbl">Lugar</span>
+    <input class="field-inp" type="text" id="f-lugar" placeholder="Calle, interseccion, referencia...">
+  </div>
+  <div class="field">
+    <span class="field-lbl">Zona</span>
+    <div class="tg-wrap">
+      <div class="tg-btn" onclick="setMulti('zona','Urbana',this)">Urbana</div>
+      <div class="tg-btn" onclick="setMulti('zona','Sub Urbana',this)">Sub Urb.</div>
+      <div class="tg-btn" onclick="setMulti('zona','Rural',this)">Rural</div>
+    </div>
+  </div>
+
+  <!-- TIPO DE SUPERFICIE -->
+  <div class="field col">
+    <span class="field-lbl">Tipo de superficie</span>
+    <div class="chk-grid">
+      <div class="chk-item" onclick="toggleChk('tipo_sup','Recto',this)"><div class="chk-box"></div><span class="chk-lbl">Recto</span></div>
+      <div class="chk-item" onclick="toggleChk('tipo_sup','Curva',this)"><div class="chk-box"></div><span class="chk-lbl">Curva</span></div>
+      <div class="chk-item" onclick="toggleChk('tipo_sup','Asfaltado',this)"><div class="chk-box"></div><span class="chk-lbl">Asfaltado</span></div>
+      <div class="chk-item" onclick="toggleChk('tipo_sup','Ripio',this)"><div class="chk-box"></div><span class="chk-lbl">Ripio</span></div>
+      <div class="chk-item" onclick="toggleChk('tipo_sup','Adoquinado',this)"><div class="chk-box"></div><span class="chk-lbl">Adoquinado</span></div>
+      <div class="chk-item" onclick="toggleChk('tipo_sup','Tierra',this)"><div class="chk-box"></div><span class="chk-lbl">Tierra</span></div>
+    </div>
+  </div>
+
+  <!-- ESTADO DE LA SUPERFICIE -->
+  <div class="field col">
+    <span class="field-lbl">Estado de la superficie</span>
+    <div class="chk-grid">
+      <div class="chk-item" onclick="toggleChk('superficie','Optimo',this)"><div class="chk-box"></div><span class="chk-lbl">Optimo</span></div>
+      <div class="chk-item" onclick="toggleChk('superficie','Bueno',this)"><div class="chk-box"></div><span class="chk-lbl">Bueno</span></div>
+      <div class="chk-item" onclick="toggleChk('superficie','Regular',this)"><div class="chk-box"></div><span class="chk-lbl">Regular</span></div>
+      <div class="chk-item" onclick="toggleChk('superficie','Malo',this)"><div class="chk-box"></div><span class="chk-lbl">Malo</span></div>
+      <div class="chk-item" onclick="toggleChk('superficie','Humedo',this)"><div class="chk-box"></div><span class="chk-lbl">Humedo</span></div>
+      <div class="chk-item" onclick="toggleChk('superficie','Seco',this)"><div class="chk-box"></div><span class="chk-lbl">Seco</span></div>
+    </div>
+  </div>
+
+  <!-- CLIMA -->
+  <div class="field col">
+    <span class="field-lbl">Situacion climatica y visibilidad</span>
+    <div class="chk-grid">
+      <div class="chk-item" onclick="toggleChk('clima','Dia',this)"><div class="chk-box"></div><span class="chk-lbl">Dia</span></div>
+      <div class="chk-item" onclick="toggleChk('clima','Noche',this)"><div class="chk-box"></div><span class="chk-lbl">Noche</span></div>
+      <div class="chk-item" onclick="toggleChk('clima','Despejado',this)"><div class="chk-box"></div><span class="chk-lbl">Despejado</span></div>
+      <div class="chk-item" onclick="toggleChk('clima','Lluvioso',this)"><div class="chk-box"></div><span class="chk-lbl">Lluvioso</span></div>
+      <div class="chk-item" onclick="toggleChk('clima','Nublado',this)"><div class="chk-box"></div><span class="chk-lbl">Nublado</span></div>
+      <div class="chk-item" onclick="toggleChk('clima','Niebla',this)"><div class="chk-box"></div><span class="chk-lbl">Niebla</span></div>
+      <div class="chk-item" onclick="toggleChk('clima','Luz Natural',this)"><div class="chk-box"></div><span class="chk-lbl">Luz Nat.</span></div>
+      <div class="chk-item" onclick="toggleChk('clima','Luz Artificial',this)"><div class="chk-box"></div><span class="chk-lbl">Luz Artif.</span></div>
+    </div>
+  </div>
+
+  <!-- TIPO DE IMPACTO -->
+  <div class="field col">
+    <span class="field-lbl">Tipo de impacto</span>
+    <div class="chk-grid">
+      <div class="chk-item" onclick="toggleChk('impacto','Choque',this)"><div class="chk-box"></div><span class="chk-lbl">Choque</span></div>
+      <div class="chk-item" onclick="toggleChk('impacto','Atropello',this)"><div class="chk-box"></div><span class="chk-lbl">Atropello</span></div>
+      <div class="chk-item" onclick="toggleChk('impacto','Vuelco',this)"><div class="chk-box"></div><span class="chk-lbl">Vuelco</span></div>
+      <div class="chk-item" onclick="toggleChk('impacto','Incendio',this)"><div class="chk-box"></div><span class="chk-lbl">Incendio</span></div>
+      <div class="chk-item" onclick="toggleChk('impacto','Caida',this)"><div class="chk-box"></div><span class="chk-lbl">Caida</span></div>
+      <div class="chk-item" onclick="toggleChk('impacto','Otros',this)"><div class="chk-box"></div><span class="chk-lbl">Otros</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <span class="field-lbl">Hubo heridos</span>
+    <div class="tg-wrap">
+      <div class="tg-btn" onclick="setToggle('heridos','SI',this)">SI</div>
+      <div class="tg-btn" onclick="setToggle('heridos','NO',this)">NO</div>
+    </div>
+  </div>
+</div>
+
+<!-- VEHICULOS -->
+<div id="vehiculos-container"></div>
+<button class="btn-add-veh" onclick="agregarVehiculo()">+ Agregar vehiculo</button>
+
+<!-- TESTIGOS -->
+<div class="sec ambar">
+  <div class="sec-hdr">
+    <div class="sec-hdr-left">
+      <div class="sec-dot" style="background:var(--ocre-500);"></div>
+      <span class="sec-lbl">Testigos</span>
+    </div>
+    <button class="tg-btn" onclick="agregarTestigo()" style="font-size:11px;height:28px;color:var(--ocre-500);border-color:var(--ocre-200);background:var(--ocre-100);">+ Agregar</button>
+  </div>
+  <div id="testigos-container">
+    <div class="field" style="justify-content:center;color:var(--n400);font-size:12px;font-family:var(--mono);">Sin testigos registrados</div>
+  </div>
+</div>
+
+<!-- OBSERVACIONES -->
+<div class="sec violeta">
+  <div class="sec-hdr">
+    <div class="sec-hdr-left">
+      <div class="sec-dot" style="background:var(--violeta);"></div>
+      <span class="sec-lbl">Observaciones finales</span>
+    </div>
+  </div>
+  <div class="field col">
+    <span class="field-lbl">Regla de transito infringida</span>
+    <textarea class="field-inp" id="f-reglas" placeholder="Describir las infracciones observadas..." rows="2"></textarea>
+  </div>
+  <div class="field col">
+    <span class="field-lbl">Observaciones</span>
+    <textarea class="field-inp" id="f-obs" placeholder="Cualquier detalle adicional del siniestro..." rows="3"></textarea>
+  </div>
+</div>
+
+<div class="actions">
+  <button class="btn btn-save" onclick="guardarActa()">Registrar acta</button>
+  <button class="btn btn-clear" onclick="limpiar()">Limpiar</button>
+  <button class="btn btn-export" onclick="exportCSV()">Exportar CSV</button>
+</div>
+
+<div class="log-wrap" id="log-wrap" style="display:none;">
+  <div style="height:1px;background:var(--n200);margin-bottom:14px;"></div>
+  <div class="log-title">Actas registradas</div>
+  <div id="log-list"></div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-var SCRIPT_URL='https://script.google.com/macros/s/AKfycbyp3XLZc3KvhkYn7iIWRZkg49c_RSBgohBvYFS_A7vBOIhCbFTDUw7bCmOXOaUkkYVqgA/exec';
-var RKEY='comprobacion_rows';
-var rows=[];
-var form={contexto:'',tipo_vehiculo_sel:'',tipo_acta:'',registro:'',casco:'',seguro:'',niega_firmar:'',fuga:''};
-var pendingDelete=null;
+var SCRIPT_URL='https://script.google.com/macros/s/AKfycbymPNRgxmx5210QyacUggEvZt9uPzbxd82BOYaxuI2moW4JlEw2SHOdOyIh9Fn3R-KTEA/exec';
+var RKEY='siniestro_rows2';
+var rows=[];var vehCount=0;var testigoCount=0;
+var form={zona:'',tipo_sup:[],superficie:[],clima:[],impacto:[],heridos:'',vehiculos:[],testigos:[],reglas:'',obs:''};
 
-/* ═══════ INIT ═══════ */
+// ── MARCAS POR TIPO ──────────────────────────────────────────────
+var MARCAS = {
+  'Moto': ['Bajaj','Beta','Corven','Gilera','Honda','Jialing','Kawasaki','Keller','Motomel','Suzuki','Trinacria','Yamaha','Zanella','Otro'],
+  'Auto': ['Chevrolet','Citroën','Fiat','Ford','Honda','Hyundai','Jeep','Kia','Nissan','Peugeot','Renault','Toyota','Volkswagen','Otro'],
+  'Camioneta': ['Chevrolet','Citroën','Fiat','Ford','Honda','Hyundai','Jeep','Kia','Mitsubishi','Nissan','Peugeot','Renault','Toyota','Volkswagen','Otro'],
+  'Camion': ['Agrale','DAF','Ford','Iveco','MAN','Mercedes-Benz','Scania','Volkswagen','Volvo','Otro'],
+  'Bicicleta': ['Otro'],
+  'Otro': ['Otro']
+};
+
 function init(){
   try{var r=localStorage.getItem(RKEY);if(r)rows=JSON.parse(r);}catch(e){}
   setFechaHoraActual();actualizarFecha();setInterval(actualizarFecha,30000);
-  renderStats();renderLog();
-}
-function setFechaHoraActual(){var now=new Date();document.getElementById('f-fecha').value=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');document.getElementById('f-hora').value=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');}
-function actualizarFecha(){var now=new Date(),dias=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],meses=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];document.getElementById('hdr-date').textContent=dias[now.getDay()]+' '+now.getDate()+' de '+meses[now.getMonth()]+' · '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');}
-
-/* ═══════ CONTEXTO ═══════ */
-function setContexto(v){
-  form.contexto=v;
-  document.getElementById('ctx-operativo').className='contexto-item';
-  document.getElementById('ctx-siniestro').className='contexto-item';
-  document.getElementById('ctx-operativo').classList.toggle('selected-operativo', v==='operativo');
-  document.getElementById('ctx-siniestro').classList.toggle('selected-siniestro', v==='siniestro');
-  document.getElementById('contexto-err').classList.remove('show');
+  renderStats();renderLog();agregarVehiculo();
 }
 
-/* ═══════ TIPO VEHÍCULO ═══════ */
-function setTipoVehiculo(v){
-  form.tipo_vehiculo_sel=v;
-  form.tipo_vehiculo_sel_txt='';
-  ['moto','auto','otros'].forEach(function(id){
-    document.getElementById('veh-'+id).className='vehiculo-item';
+function setFechaHoraActual(){
+  var now=new Date();
+  document.getElementById('f-fecha').value=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+  document.getElementById('f-hora').value=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+}
+
+function actualizarFecha(){
+  var now=new Date();
+  var dias=['domingo','lunes','martes','miercoles','jueves','viernes','sabado'];
+  var meses=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  document.getElementById('hdr-date').textContent=dias[now.getDay()]+' '+now.getDate()+' de '+meses[now.getMonth()]+' - '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+}
+
+function setMulti(campo,val,el){
+  form[campo]=val;
+  var siblings=el.parentNode.querySelectorAll('.tg-btn');
+  for(var i=0;i<siblings.length;i++)siblings[i].classList.remove('si');
+  el.classList.add('si');
+}
+
+function setToggle(campo,val,el){
+  form[campo]=val;
+  var siblings=el.parentNode.querySelectorAll('.tg-btn');
+  for(var i=0;i<siblings.length;i++){siblings[i].classList.remove('si');siblings[i].classList.remove('no');}
+  el.classList.add(val==='SI'?'si':'no');
+}
+
+function toggleChk(campo,val,el){
+  var box=el.querySelector('.chk-box');var arr=form[campo];var idx=arr.indexOf(val);
+  if(idx===-1){arr.push(val);box.classList.add('on');}else{arr.splice(idx,1);box.classList.remove('on');}
+}
+
+function getVeh(id){for(var i=0;i<form.vehiculos.length;i++){if(form.vehiculos[i].id===id)return form.vehiculos[i];}return null;}
+
+// ── SD (sin datos) por campo ──────────────────────────────────────
+function sinDatos(inpId,btnId,vid,campo){
+  var inp=document.getElementById(inpId);
+  var btn=document.getElementById(btnId);
+  if(!inp||!btn)return;
+  var ya=inp.classList.contains('sd');
+  if(ya){
+    inp.classList.remove('sd');inp.disabled=false;inp.value='';
+    btn.classList.remove('activo');btn.textContent='S/D';
+    if(vid&&campo){var v=getVeh(vid);if(v)v[campo]='';}
+  } else {
+    inp.classList.add('sd');inp.disabled=true;inp.value='';
+    btn.classList.add('activo');btn.textContent='S/D';
+    if(vid&&campo){var v=getVeh(vid);if(v)v[campo]='S/D';}
+  }
+}
+
+// ── VEHÍCULOS ─────────────────────────────────────────────────────
+function agregarVehiculo(){
+  vehCount++;var id='veh'+vehCount;var num=vehCount;
+  form.vehiculos.push({id:id,num:num,
+    dominio:'',tipo_doc_prop:'',doc_prop:'',propietario:'',marca:'',modelo:'',tipo:'',motor:'',circulacion:'',
+    cond_nombre:'',cond_tipo_doc:'',cond_doc:'',cond_nac:'',cond_nac_otro:'',cond_edad:'',cond_ecivil:'',
+    cond_domicilio:'',cond_licencia:'',cond_lic_expedida:'',cond_aseguradora:'',cond_poliza:'',
+    casco:'',cinturon:'',danos:'',acta_comprobacion:''});
+
+  var html='<div class="veh-block" id="block-'+id+'">';
+  html+='<div class="veh-hdr"><span class="veh-hdr-lbl">VEHICULO N '+num+'</span>';
+  if(num>1)html+='<button class="veh-del" onclick="eliminarVehiculo(\''+id+'\')">x Quitar</button>';
+  html+='</div>';
+
+  // Datos del vehículo
+  html+=fisd(id,'dominio','Dominio (patente)','text','ABC 123');
+  html+=fisd(id,'propietario','Propietario','text','Apellido y nombre');
+
+  // Tipo y Nro doc propietario
+  html+='<div class="field"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Tipo y N doc. propietario / CUIT</span>';
+  html+='<div style="display:flex;gap:6px;flex-shrink:0;">';
+  html+='<select id="inp-'+id+'-tipo_doc_prop" class="sel-inp" style="width:80px;" onchange="setVehField(\''+id+'\',\'tipo_doc_prop\',this.value)">';
+  html+='<option value="">--</option><option>DNI</option><option>CUIT</option><option>Pasaporte</option><option>Otro</option></select>';
+  html+='<input id="inp-'+id+'-doc_prop" class="field-inp" style="width:130px;" placeholder="N documento" oninput="setVehField(\''+id+'\',\'doc_prop\',this.value)">';
+  html+='<button id="sdbtn-'+id+'-doc_prop" class="sd-btn" onclick="sinDatos(\'inp-'+id+'-doc_prop\',\'sdbtn-'+id+'-doc_prop\',\''+id+'\',\'doc_prop\')">S/D</button>';
+  html+='</div></div>';
+
+  // Tipo de vehículo (select con dependencias)
+  html+='<div class="field"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Tipo de vehiculo</span>';
+  html+='<select id="inp-'+id+'-tipo" class="sel-inp" onchange="onTipoVeh(this,\''+id+'\')"><option value="">-- seleccionar --</option><option>Moto</option><option>Auto</option><option>Camioneta</option><option>Camion</option><option>Bicicleta</option><option>Otro</option></select></div>';
+
+  // Marca (select dinámico — se puebla al elegir tipo)
+  html+='<div class="field" id="marca-row-'+id+'"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Marca</span>';
+  html+='<div style="display:flex;gap:6px;flex-shrink:0;align-items:center;">';
+  html+='<select id="inp-'+id+'-marca" class="sel-inp" style="width:170px;" onchange="onMarcaSel(this,\''+id+'\')"><option value="">-- elegir tipo primero --</option></select>';
+  html+='<button id="sdbtn-'+id+'-marca" class="sd-btn" onclick="sinDatosSel(\'inp-'+id+'-marca\',\'sdbtn-'+id+'-marca\',\''+id+'\',\'marca\')">S/D</button>';
+  html+='</div></div>';
+
+  // Marca libre cuando se elige "Otro"
+  html+='<div class="field" id="marca-otro-'+id+'" style="display:none;"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Marca (especificar)</span>';
+  html+='<input id="inp-'+id+'-marca_otro" class="field-inp short" oninput="setVehField(\''+id+'\',\'marca\',this.value)"></div>';
+
+  html+=fisd(id,'modelo','Modelo','text','');
+  html+=fisd(id,'motor','N de motor','text','');
+  html+=fisd(id,'circulacion','Lugar y sentido de circulacion','text','');
+
+  // Bloque conductor
+  html+='<div class="subsec-hdr"><span class="subsec-lbl">Conductor del vehiculo '+num+'</span>';
+  html+='<button type="button" id="copiar-btn-'+id+'" onclick="copiarPropietario(\''+id+'\')" style="font-family:var(--mono);font-size:11px;background:var(--teal-bg);border:1px solid var(--teal);color:var(--teal);border-radius:var(--r-sm);padding:4px 10px;cursor:pointer;white-space:nowrap;">= mismo propietario</button>';
+  html+='</div>';
+
+  html+=fisd(id,'cond_nombre','Apellido y nombre','text','');
+
+  // Tipo y Nro doc conductor
+  html+='<div class="field"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Tipo y N documento conductor</span>';
+  html+='<div style="display:flex;gap:6px;flex-shrink:0;">';
+  html+='<select id="inp-'+id+'-cond_tipo_doc" class="sel-inp" style="width:80px;" onchange="setVehField(\''+id+'\',\'cond_tipo_doc\',this.value)">';
+  html+='<option value="">--</option><option>DNI</option><option>CUIT</option><option>Pasaporte</option><option>Otro</option></select>';
+  html+='<input id="inp-'+id+'-cond_doc" class="field-inp" style="width:130px;" placeholder="N documento" oninput="setVehField(\''+id+'\',\'cond_doc\',this.value)">';
+  html+='<button id="sdbtn-'+id+'-cond_doc" class="sd-btn" onclick="sinDatos(\'inp-'+id+'-cond_doc\',\'sdbtn-'+id+'-cond_doc\',\''+id+'\',\'cond_doc\')">S/D</button>';
+  html+='</div></div>';
+
+  // Nacionalidad con "Otro"
+  html+='<div class="field"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Nacionalidad</span>';
+  html+='<div style="display:flex;gap:6px;flex-shrink:0;align-items:center;">';
+  html+='<select id="inp-'+id+'-cond_nac" class="sel-inp" onchange="onNacSel(this,\''+id+'\')">';
+  html+='<option value="">-- seleccionar --</option><option>Argentina</option><option>Otro</option></select>';
+  html+='</div></div>';
+  html+='<div class="field" id="nac-otro-'+id+'" style="display:none;"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Nacionalidad (especificar)</span>';
+  html+='<input id="inp-'+id+'-cond_nac_otro" class="field-inp short" oninput="setVehField(\''+id+'\',\'cond_nac_otro\',this.value)"></div>';
+
+  html+=fisd(id,'cond_edad','Edad','number','');
+  html+=fssel(id,'cond_ecivil','Estado civil',['','Casado/a','Soltero/a','Viudo/a','Divorciado/a','Otro']);
+  html+=fisd(id,'cond_domicilio','Domicilio','text','');
+  html+=fisd(id,'cond_licencia','Licencia N','text','');
+  html+=fisd(id,'cond_lic_expedida','Licencia expedida por','text','');
+  html+=fisd(id,'cond_aseguradora','Asegurado en','text','');
+  html+=fisd(id,'cond_poliza','Poliza N','text','');
+
+  // Casco / Cinturón (dinámico según tipo)
+  html+='<div id="casco-row-'+id+'" style="display:none;" class="field"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Casco</span>';
+  html+='<div class="tg-wrap">';
+  html+='<div class="tg-btn" onclick="setVehToggle(\''+id+'\',\'casco\',\'SI\',this)">SI</div>';
+  html+='<div class="tg-btn" onclick="setVehToggle(\''+id+'\',\'casco\',\'NO\',this)">NO</div>';
+  html+='<div class="tg-btn" onclick="setVehToggle(\''+id+'\',\'casco\',\'SE IGNORA\',this)">S/I</div>';
+  html+='</div></div>';
+
+  html+='<div id="cinturon-row-'+id+'" style="display:none;" class="field"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Cinturon de seguridad</span>';
+  html+='<div class="tg-wrap">';
+  html+='<div class="tg-btn" onclick="setVehToggle(\''+id+'\',\'cinturon\',\'SI\',this)">SI</div>';
+  html+='<div class="tg-btn" onclick="setVehToggle(\''+id+'\',\'cinturon\',\'NO\',this)">NO</div>';
+  html+='<div class="tg-btn" onclick="setVehToggle(\''+id+'\',\'cinturon\',\'SE IGNORA\',this)">S/I</div>';
+  html+='</div></div>';
+
+  // Daños observados — al final, después del conductor
+  html+='<div class="subsec-hdr" style="border-top:1px dashed rgba(168,50,44,.3);"><span class="subsec-lbl">Danos — vehiculo '+num+'</span></div>';
+  html+=fisd(id,'danos','Danos observados a simple vista','text','');
+  html+=fisd(id,'acta_comprobacion','N acta de comprobacion','text','');
+
+  html+='</div>'; // cierre veh-block
+
+  var tmp=document.createElement('div');tmp.innerHTML=html;
+  document.getElementById('vehiculos-container').appendChild(tmp.firstChild);
+}
+
+// campo texto con botón S/D
+function fisd(vid,campo,lbl,tipo,ph){
+  var ph2=ph||'';
+  return '<div class="field"><span class="field-lbl" style="font-size:12px;color:var(--n400);">'+lbl+'</span>'+
+    '<div style="display:flex;gap:6px;flex-shrink:0;align-items:center;">'+
+    '<input id="inp-'+vid+'-'+campo+'" class="field-inp short" type="'+tipo+'" placeholder="'+ph2+'" oninput="setVehField(\''+vid+'\',\''+campo+'\',this.value)">'+
+    '<button id="sdbtn-'+vid+'-'+campo+'" class="sd-btn" onclick="sinDatos(\'inp-'+vid+'-'+campo+'\',\'sdbtn-'+vid+'-'+campo+'\',\''+vid+'\',\''+campo+'\')">S/D</button>'+
+    '</div></div>';
+}
+
+// campo select con botón S/D
+function fssel(vid,campo,lbl,opciones){
+  var opts=opciones.map(function(o){return '<option>'+o+'</option>';}).join('');
+  return '<div class="field"><span class="field-lbl" style="font-size:12px;color:var(--n400);">'+lbl+'</span>'+
+    '<div style="display:flex;gap:6px;flex-shrink:0;">'+
+    '<select id="inp-'+vid+'-'+campo+'" class="sel-inp" onchange="setVehField(\''+vid+'\',\''+campo+'\',this.value)">'+opts+'</select>'+
+    '<button id="sdbtn-'+vid+'-'+campo+'" class="sd-btn" onclick="sinDatosSel(\'inp-'+vid+'-'+campo+'\',\'sdbtn-'+vid+'-'+campo+'\',\''+vid+'\',\''+campo+'\')">S/D</button>'+
+    '</div></div>';
+}
+
+function sinDatosSel(inpId,btnId,vid,campo){
+  var inp=document.getElementById(inpId);var btn=document.getElementById(btnId);
+  if(!inp||!btn)return;
+  var ya=btn.classList.contains('activo');
+  if(ya){inp.disabled=false;btn.classList.remove('activo');if(vid&&campo){var v=getVeh(vid);if(v)v[campo]='';}}
+  else{inp.disabled=true;btn.classList.add('activo');if(vid&&campo){var v=getVeh(vid);if(v)v[campo]='S/D';}}
+}
+
+function onTipoVeh(el,vid){
+  var tipo=el.value;
+  setVehField(vid,'tipo',tipo);
+  var sel=document.getElementById('inp-'+vid+'-marca');
+  if(!sel)return;
+  var lista=MARCAS[tipo]||['Otro'];
+  var opts='<option value="">-- seleccionar --</option>';
+  lista.forEach(function(m){opts+='<option>'+m+'</option>';});
+  sel.innerHTML=opts;sel.disabled=false;
+  var cascoRow=document.getElementById('casco-row-'+vid);
+  var cinturonRow=document.getElementById('cinturon-row-'+vid);
+  if(cascoRow)cascoRow.style.display=(tipo==='Moto')?'flex':'none';
+  if(cinturonRow)cinturonRow.style.display=(tipo!==''&&tipo!=='Moto'&&tipo!=='Bicicleta')?'flex':'none';
+}
+
+function onMarcaSel(el,vid){
+  var val=el.value;
+  var otroRow=document.getElementById('marca-otro-'+vid);
+  if(val==='Otro'){if(otroRow)otroRow.style.display='flex';}
+  else{if(otroRow)otroRow.style.display='none';setVehField(vid,'marca',val);}
+}
+
+function onNacSel(el,vid){
+  var val=el.value;
+  var otroRow=document.getElementById('nac-otro-'+vid);
+  if(val==='Otro'){if(otroRow)otroRow.style.display='flex';}
+  else{if(otroRow)otroRow.style.display='none';setVehField(vid,'cond_nac',val);}
+}
+
+function setVehField(vid,campo,val){var v=getVeh(vid);if(v)v[campo]=val;}
+
+function setVehToggle(vid,campo,val,el){
+  var v=getVeh(vid);if(v)v[campo]=val;
+  var siblings=el.parentNode.querySelectorAll('.tg-btn');
+  for(var i=0;i<siblings.length;i++){siblings[i].classList.remove('si');siblings[i].classList.remove('no');siblings[i].classList.remove('ig');}
+  el.classList.add(val==='SI'?'si':val==='NO'?'no':'ig');
+}
+
+function copiarPropietario(vid){
+  var v=getVeh(vid);if(!v)return;
+  var mapeo=[['propietario','cond_nombre'],['doc_prop','cond_doc'],['tipo_doc_prop','cond_tipo_doc']];
+  mapeo.forEach(function(par){
+    var val=v[par[0]]||'';v[par[1]]=val;
+    var inp=document.getElementById('inp-'+vid+'-'+par[1]);if(inp)inp.value=val;
+    var inpSrc=document.getElementById('inp-'+vid+'-'+par[0]);
+    var selSrc=document.getElementById('inp-'+vid+'-'+par[0]);
+    if(par[0]==='tipo_doc_prop'){
+      var selDst=document.getElementById('inp-'+vid+'-cond_tipo_doc');
+      if(selDst)selDst.value=val;
+    }
   });
-  document.getElementById('veh-'+v).classList.add('selected');
-  document.getElementById('vehiculo-err').classList.remove('show');
-  // Mostrar/ocultar campo de texto libre
-  var wrap=document.getElementById('veh-otros-wrap');
-  var txt=document.getElementById('veh-otros-texto');
-  if(v==='otros'){
-    wrap.style.display='block';
-    setTimeout(function(){txt.focus();},80);
-  } else {
-    wrap.style.display='none';
-    txt.value='';
-    // Autocompletar campo tipo en secuestro
-    var secTipo=document.getElementById('f-sec-tipo');
-    if(secTipo) secTipo.value = v==='moto'?'Moto':'Auto';
-  }
+  var btn=document.getElementById('copiar-btn-'+vid);
+  if(btn){btn.textContent='copiado';btn.style.background='var(--verde-bg)';btn.style.borderColor='var(--verde)';btn.style.color='var(--verde)';
+    setTimeout(function(){btn.textContent='= mismo propietario';btn.style.background='var(--teal-bg)';btn.style.borderColor='var(--teal)';btn.style.color='var(--teal)';},2000);}
+  showToast('Datos copiados al conductor','ok');
 }
 
-/* ═══════ TIPO ACTA ═══════ */
-function setTipoActa(tipo){
-  form.tipo_acta=tipo;
-  document.getElementById('tipo-multa').className='tipo-item';
-  document.getElementById('tipo-secuestro').className='tipo-item';
-  document.getElementById('tipo-err').classList.remove('show');
-  if(tipo==='multa'){
-    document.getElementById('tipo-multa').classList.add('selected-multa');
-    document.getElementById('secuestro-section').classList.remove('visible');
-    document.getElementById('documentacion-section').style.display='block';
-  } else {
-    document.getElementById('tipo-secuestro').classList.add('selected-secuestro');
-    document.getElementById('secuestro-section').classList.add('visible');
-    document.getElementById('documentacion-section').style.display='none';
-  }
+function eliminarVehiculo(id){
+  var b=document.getElementById('block-'+id);if(b)b.parentNode.removeChild(b);
+  form.vehiculos=form.vehiculos.filter(function(v){return v.id!==id;});
 }
 
-/* ═══════ TOGGLES ═══════ */
-function setDoc(c,v,el){form[c]=v;var s=el.parentNode.querySelectorAll('.tg-btn');for(var i=0;i<s.length;i++)s[i].classList.remove('si','no');el.classList.add(v==='SI'?'si':'no');}
-function setSecuestroDoc(c,v,el){form[c]=v;var s=el.parentNode.querySelectorAll('.tg-btn');for(var i=0;i<s.length;i++)s[i].classList.remove('si','no');el.classList.add(v==='SI'?'si':'no');}
-
-/* ═══════ VALIDACIÓN ═══════ */
-function limpiarValidacion(){
-  document.querySelectorAll('.field-inp.invalid').forEach(function(el){el.classList.remove('invalid');});
-  document.getElementById('val-banner').classList.remove('show');
-  document.getElementById('contexto-err').classList.remove('show');
-  document.getElementById('vehiculo-err').classList.remove('show');
-  document.getElementById('tipo-err').classList.remove('show');
-}
-function validar(){
-  var errores=[];limpiarValidacion();
-  function req(id,label){var el=document.getElementById(id);if(!el)return;if(!el.value.trim()){el.classList.add('invalid');errores.push(label);}}
-  if(!form.contexto){document.getElementById('contexto-err').classList.add('show');errores.push('Contexto (Operativo o Siniestro)');}
-  if(!form.tipo_vehiculo_sel){document.getElementById('vehiculo-err').classList.add('show');errores.push('Tipo de vehículo');}
-  else if(form.tipo_vehiculo_sel==='otros'){
-    var otrosTxt=document.getElementById('veh-otros-texto').value.trim();
-    if(!otrosTxt){document.getElementById('veh-otros-texto').classList.add('invalid');errores.push('Especificá el tipo de vehículo en "Otros"');}
-    else{form.tipo_vehiculo_sel_txt=otrosTxt;}
-  }
-  if(!form.tipo_acta){document.getElementById('tipo-err').classList.add('show');errores.push('Tipo de acta');}
-  req('f-nro-acta','N° de acta');
-  req('f-fecha','Fecha del hecho');
-  req('f-hora','Hora del hecho');
-  req('f-direccion','Dirección del hecho');
-  req('f-conductor','Apellido y nombre del conductor');
-  req('f-dni','DNI del conductor');
-  if(form.tipo_acta==='secuestro'){
-    req('f-sec-tipo','Tipo de vehículo');
-    req('f-sec-marca','Marca del vehículo');
-    req('f-sec-chasis','Número de chasis');
-  }
-  if(errores.length>0){
-    document.getElementById('val-lista').innerHTML=errores.map(function(e){return '<li>'+e+'</li>';}).join('');
-    document.getElementById('val-banner').classList.add('show');
-    var first=document.querySelector('.field-inp.invalid');
-    if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
-    return false;
-  }
-  return true;
+// ── TESTIGOS ──────────────────────────────────────────────────────
+function agregarTestigo(){
+  testigoCount++;var id='t'+testigoCount;var num=testigoCount;
+  form.testigos.push({id:id,num:num,nombre:'',tipo_doc:'',doc:'',domicilio:''});
+  var html='<div id="block-'+id+'" style="border-bottom:1px solid var(--n100);">';
+  html+='<div style="padding:8px 14px;display:flex;align-items:center;justify-content:space-between;">';
+  html+='<span style="font-family:var(--mono);font-size:10px;color:var(--ocre-500);text-transform:uppercase;letter-spacing:.08em;">Testigo '+num+'</span>';
+  html+='<button style="background:var(--ocre-100);border:1px solid var(--ocre-200);border-radius:var(--r-sm);color:var(--ocre-500);font-size:11px;padding:3px 10px;cursor:pointer;font-family:var(--mono);" onclick="eliminarTestigo(\''+id+'\')">x</button></div>';
+  html+='<div class="field col" style="gap:4px;"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Apellido y nombre</span><input class="field-inp" oninput="setTestigoField(\''+id+'\',\'nombre\',this.value)"></div>';
+  html+='<div class="field"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Tipo y N documento</span>';
+  html+='<div style="display:flex;gap:6px;">';
+  html+='<select class="sel-inp" style="width:80px;" onchange="setTestigoField(\''+id+'\',\'tipo_doc\',this.value)"><option value="">--</option><option>DNI</option><option>Pasaporte</option><option>Otro</option></select>';
+  html+='<input class="field-inp short" placeholder="N documento" oninput="setTestigoField(\''+id+'\',\'doc\',this.value)">';
+  html+='</div></div>';
+  html+='<div class="field col" style="gap:4px;"><span class="field-lbl" style="font-size:12px;color:var(--n400);">Domicilio</span><input class="field-inp" oninput="setTestigoField(\''+id+'\',\'domicilio\',this.value)"></div>';
+  html+='</div>';
+  var container=document.getElementById('testigos-container');
+  var ph=container.querySelector('[style*="justify-content:center"]');if(ph)container.innerHTML='';
+  var tmp=document.createElement('div');tmp.innerHTML=html;container.appendChild(tmp.firstChild);
 }
 
-/* ═══════ GUARDAR ═══════ */
+function setTestigoField(id,campo,val){
+  for(var i=0;i<form.testigos.length;i++){if(form.testigos[i].id===id){form.testigos[i][campo]=val;return;}}
+}
+
+function eliminarTestigo(id){
+  var b=document.getElementById('block-'+id);if(b)b.parentNode.removeChild(b);
+  form.testigos=form.testigos.filter(function(t){return t.id!==id;});
+  if(form.testigos.length===0){document.getElementById('testigos-container').innerHTML='<div class="field" style="justify-content:center;color:var(--n400);font-size:12px;font-family:var(--mono);">Sin testigos registrados</div>';}
+}
+
+// ── GUARDAR ───────────────────────────────────────────────────────
 function guardarActa(){
-  if(!validar())return;
-  var now=new Date(),n=rows.length+1;
-  var nroActa=document.getElementById('f-nro-acta').value.trim();
-  var row={
-    n:n,
+  var now=new Date();var n=rows.length+1;
+  var row={n:n,
     fecha_registro:String(now.getDate()).padStart(2,'0')+'/'+(now.getMonth()+1)+'/'+now.getFullYear(),
     hora_registro:String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0'),
     inspector:document.getElementById('act-inspector').value.trim()||'--',
     legajo_insp:document.getElementById('act-legajo-insp').value.trim()||'--',
-    secretario:document.getElementById('act-secretario').value.trim()||'--',
-    legajo_sec:document.getElementById('act-legajo-sec').value.trim()||'--',
-    tipo_acta:form.tipo_acta==='multa'?'MULTA':'SECUESTRO + MULTA',
-    contexto:form.contexto.toUpperCase(),
-    tipo_vehiculo_sel: form.tipo_vehiculo_sel==='otros'
-      ? (form.tipo_vehiculo_sel_txt||'Otros')
-      : (form.tipo_vehiculo_sel==='moto'?'Moto':'Auto'),
-    nro_acta:nroActa,
-    fecha_hecho:document.getElementById('f-fecha').value,
-    hora_hecho:document.getElementById('f-hora').value,
-    direccion:document.getElementById('f-direccion').value.trim(),
-    conductor:document.getElementById('f-conductor').value.trim(),
-    dni:document.getElementById('f-dni').value.trim(),
-    domicilio:document.getElementById('f-domicilio').value.trim()||'--',
-    descripcion:document.getElementById('f-descripcion').value.trim()||'--'
-  };
-  if(form.tipo_acta==='multa'){
-    row.registro=form.registro||'--';row.casco=form.casco||'--';row.seguro=form.seguro||'--';
-    row.tipo_vehiculo='--';row.marca='--';row.modelo='--';row.chasis='--';row.color='--';row.dominio='--';
-    row.niega_firmar='--';row.fuga='--';
-  } else {
-    row.registro='--';row.casco='--';row.seguro='--';
-    row.tipo_vehiculo=document.getElementById('f-sec-tipo').value.trim()||'--';
-    row.marca=document.getElementById('f-sec-marca').value.trim()||'--';
-    row.modelo=document.getElementById('f-sec-modelo').value.trim()||'--';
-    row.chasis=document.getElementById('f-sec-chasis').value.trim()||'--';
-    row.color=document.getElementById('f-sec-color').value.trim()||'--';
-    row.dominio=document.getElementById('f-sec-dominio').value.trim()||'--';
-    row.niega_firmar=form.niega_firmar||'--';
-    row.fuga=form.fuga||'--';
-  }
+    director:document.getElementById('act-director').value.trim()||'--',
+    legajo_dir:document.getElementById('act-legajo-dir').value.trim()||'--',
+    hora_siniestro:document.getElementById('f-hora').value,
+    fecha_siniestro:document.getElementById('f-fecha').value,
+    localidad:document.getElementById('f-localidad').value.trim()||'--',
+    lugar:document.getElementById('f-lugar').value.trim()||'--',
+    zona:form.zona||'--',
+    tipo_sup:form.tipo_sup.join(' / ')||'--',
+    superficie:form.superficie.join(' / ')||'--',
+    clima:form.clima.join(' / ')||'--',
+    impacto:form.impacto.join(' / ')||'--',
+    heridos:form.heridos||'--',
+    cant_vehiculos:form.vehiculos.length,
+    vehiculos:JSON.stringify(form.vehiculos),
+    cant_testigos:form.testigos.length,
+    testigos:JSON.stringify(form.testigos),
+    reglas:document.getElementById('f-reglas').value.trim()||'--',
+    observaciones:document.getElementById('f-obs').value.trim()||'--'};
   rows.push(row);
   try{localStorage.setItem(RKEY,JSON.stringify(rows));}catch(e){}
-  try{fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(Object.assign({},row,{accion:'acta'}))});}catch(e){}
-  renderStats();renderLog();limpiar(true);
-  showToast('Acta #'+nroActa+' registrada','ok');
+  try{fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(row)});}catch(e){}
+  renderStats();renderLog();limpiar();showToast('Acta #'+n+' registrada','ok');
 }
 
-/* ═══════ LIMPIAR ═══════ */
-function pedirLimpiar(){document.getElementById('modal-limpiar').classList.add('show');}
-function limpiar(sinModal){
-  if(!sinModal)document.getElementById('modal-limpiar').classList.remove('show');
-  limpiarValidacion();
-  form={contexto:'',tipo_vehiculo_sel:'',tipo_vehiculo_sel_txt:'',tipo_acta:'',registro:'',casco:'',seguro:'',niega_firmar:'',fuga:''};
-  document.getElementById('ctx-operativo').className='contexto-item';
-  document.getElementById('ctx-siniestro').className='contexto-item';
-  ['moto','auto','otros'].forEach(function(id){document.getElementById('veh-'+id).className='vehiculo-item';});
-  document.getElementById('veh-otros-wrap').style.display='none';
-  document.getElementById('veh-otros-texto').value='';
-  document.getElementById('vehiculo-err').classList.remove('show');
-  document.getElementById('tipo-multa').className='tipo-item';
-  document.getElementById('tipo-secuestro').className='tipo-item';
-  document.getElementById('secuestro-section').classList.remove('visible');
-  document.getElementById('documentacion-section').style.display='block';
-  setFechaHoraActual();
-  ['f-nro-acta','f-direccion','f-conductor','f-dni','f-domicilio','f-descripcion',
-   'f-sec-tipo','f-sec-marca','f-sec-modelo','f-sec-chasis','f-sec-color','f-sec-dominio']
-  .forEach(function(id){document.getElementById(id).value='';});
-  document.querySelectorAll('.tg-btn').forEach(function(b){b.classList.remove('si','no');});
+function limpiar(){
+  form={zona:'',tipo_sup:[],superficie:[],clima:[],impacto:[],heridos:'',vehiculos:[],testigos:[],reglas:'',obs:''};
+  vehCount=0;testigoCount=0;setFechaHoraActual();
+  document.getElementById('f-localidad').value='';
+  document.getElementById('f-lugar').value='';
+  document.getElementById('f-reglas').value='';
+  document.getElementById('f-obs').value='';
+  document.querySelectorAll('.chk-box').forEach(function(b){b.classList.remove('on');});
+  document.querySelectorAll('.tg-btn').forEach(function(b){b.classList.remove('si');b.classList.remove('no');b.classList.remove('ig');});
+  document.getElementById('vehiculos-container').innerHTML='';
+  document.getElementById('testigos-container').innerHTML='<div class="field" style="justify-content:center;color:var(--n400);font-size:12px;font-family:var(--mono);">Sin testigos registrados</div>';
+  agregarVehiculo();
 }
 
-/* ═══════ MODALES ═══════ */
-function cerrarModal(cual){document.getElementById('modal-'+cual).classList.remove('show');if(cual==='borrar')pendingDelete=null;}
-function pedirBorrar(n){pendingDelete=n;document.getElementById('modal-borrar').classList.add('show');}
-function confirmarBorrar(){
-  if(pendingDelete===null){cerrarModal('borrar');return;}
-  rows=rows.filter(function(r){return r.n!==pendingDelete;});
-  try{localStorage.setItem(RKEY,JSON.stringify(rows));}catch(e){}
-  cerrarModal('borrar');renderStats();renderLog();
-  showToast('Acta eliminada','ok');
-}
-
-/* ═══════ STATS + LOG ═══════ */
 function renderStats(){
-  var s=0,h=0,today=new Date(),hs=String(today.getDate()).padStart(2,'0')+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
-  for(var i=0;i<rows.length;i++){if(rows[i].tipo_acta==='SECUESTRO + MULTA')s++;if(rows[i].fecha_registro===hs)h++;}
+  var heridos=0,totalVeh=0;
+  for(var i=0;i<rows.length;i++){if(rows[i].heridos==='SI')heridos++;totalVeh+=(rows[i].cant_vehiculos||0);}
   document.getElementById('st-total').textContent=rows.length;
-  document.getElementById('st-secuestro').textContent=s;
-  document.getElementById('st-hoy').textContent=h;
+  document.getElementById('st-heridos').textContent=heridos;
+  document.getElementById('st-veh').textContent=totalVeh;
 }
+
 function renderLog(){
-  var wrap=document.getElementById('log-wrap'),list=document.getElementById('log-list');
+  var wrap=document.getElementById('log-wrap');var list=document.getElementById('log-list');
   if(rows.length===0){wrap.style.display='none';return;}
   wrap.style.display='block';var html='';
   for(var i=rows.length-1;i>=0;i--){
-    var r=rows[i],chips='<span class="chip a">#'+r.nro_acta+'</span>';
-    if(r.contexto)chips+='<span class="chip '+(r.contexto==='OPERATIVO'?'g':'b')+'">'+r.contexto+'</span>';
-    if(r.tipo_acta==='SECUESTRO + MULTA'){
-      chips+='<span class="chip r">🚫 SECUESTRO</span>';
-      if(r.dominio!=='--')chips+='<span class="chip b">'+r.dominio+'</span>';
-      if(r.fuga==='SI')chips+='<span class="chip r">FUGA</span>';
-    } else {
-      chips+='<span class="chip g">📄 MULTA</span>';
-      if(r.registro==='NO')chips+='<span class="chip r">SIN REGISTRO</span>';
-      if(r.casco==='NO')chips+='<span class="chip r">SIN CASCO</span>';
-      if(r.seguro==='NO')chips+='<span class="chip r">SIN SEGURO</span>';
-    }
-    chips+='<span class="chip">'+r.hora_hecho+'</span>';
+    var r=rows[i];var chips='';
+    chips+='<span class="chip">#'+r.n+'</span>';
+    chips+='<span class="chip">'+r.hora_siniestro+'</span>';
+    chips+='<span class="chip">'+r.fecha_siniestro+'</span>';
+    if(r.zona!=='--')chips+='<span class="chip b">'+r.zona+'</span>';
+    if(r.impacto!=='--')chips+='<span class="chip r">'+r.impacto.toUpperCase()+'</span>';
+    if(r.heridos==='SI')chips+='<span class="chip r">HERIDOS</span>';
+    chips+='<span class="chip">'+r.cant_vehiculos+' veh.</span>';
+    if(r.cant_testigos>0)chips+='<span class="chip a">'+r.cant_testigos+' test.</span>';
     if(r.inspector!=='--')chips+='<span class="chip t">'+r.inspector+'</span>';
-    html+='<div class="log-item"><div class="chips">'+chips+'</div><button class="del-btn" onclick="pedirBorrar('+r.n+')">✕</button></div>';
+    html+='<div class="log-item"><div class="chips">'+chips+'</div><button class="del-btn" onclick="borrar('+r.n+')">x</button></div>';
   }
   list.innerHTML=html;
 }
 
-/* ═══════ EXPORT CSV ═══════ */
-function exportCSV(){
-  if(rows.length===0){showToast('No hay registros aún','err');return;}
-  var hdrs=['N','Fecha Registro','Hora Registro','Inspector','Legajo Inspector','Secretario','Legajo Secretario','Contexto','Tipo Vehículo Sel.','Tipo Acta','N° Acta','Fecha Hecho','Hora Hecho','Dirección','Conductor','DNI','Domicilio','Tipo Vehículo','Marca','Modelo','Chasis','Color','Dominio','Registro','Casco','Seguro','Niega Firmar','Fuga','Descripción'];
-  var lines=[hdrs.join(',')];
-  for(var i=0;i<rows.length;i++){
-    var r=rows[i];
-    var v=[r.n,r.fecha_registro,r.hora_registro,r.inspector,r.legajo_insp,r.secretario,r.legajo_sec,r.contexto||'--',r.tipo_vehiculo_sel||'--',r.tipo_acta,r.nro_acta,r.fecha_hecho,r.hora_hecho,r.direccion,r.conductor,r.dni,r.domicilio,r.tipo_vehiculo||'--',r.marca||'--',r.modelo||'--',r.chasis||'--',r.color||'--',r.dominio||'--',r.registro,r.casco,r.seguro,r.niega_firmar,r.fuga,r.descripcion];
-    lines.push(v.map(function(x){return'"'+String(x).replace(/"/g,'""')+'"';}).join(','));
-  }
-  var blob=new Blob(['\uFEFF'+lines.join('\n')],{type:'text/csv;charset=utf-8;'});
-  var url=URL.createObjectURL(blob);
-  var a=document.createElement('a');
-  a.href=url;a.download='actas_cem_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
-  URL.revokeObjectURL(url);showToast('CSV exportado','ok');
+function borrar(n){
+  rows=rows.filter(function(r){return r.n!==n;});
+  try{localStorage.setItem(RKEY,JSON.stringify(rows));}catch(e){}
+  renderStats();renderLog();
 }
 
-/* ═══════ TOAST ═══════ */
-function showToast(msg,tipo){var t=document.getElementById('toast');t.textContent=msg;t.className='toast show '+(tipo||'');setTimeout(function(){t.className='toast';},2800);}
+function exportCSV(){
+  if(rows.length===0){showToast('No hay registros aun','err');return;}
+  var hdrs=['N','Fecha Registro','Hora Registro','Inspector','Legajo Inspector','Director','Legajo Director',
+    'Hora Siniestro','Fecha Siniestro','Localidad','Lugar','Zona','Tipo Superficie','Estado Superficie',
+    'Clima Visibilidad','Tipo Impacto','Heridos','Cant. Vehiculos',
+    'Veh1 Dominio','Veh1 Tipo Doc Prop','Veh1 Doc Prop','Veh1 Propietario','Veh1 Tipo','Veh1 Marca','Veh1 Modelo','Veh1 Motor','Veh1 Circulacion',
+    'Cond1 Nombre','Cond1 Tipo Doc','Cond1 Doc','Cond1 Nac','Cond1 Edad','Cond1 EstCivil','Cond1 Domicilio','Cond1 Licencia','Cond1 LicExpedida','Cond1 Aseguradora','Cond1 Poliza','Cond1 Casco','Cond1 Cinturon',
+    'Veh1 Danos','Veh1 Acta Comprob',
+    'Veh2 Dominio','Veh2 Tipo Doc Prop','Veh2 Doc Prop','Veh2 Propietario','Veh2 Tipo','Veh2 Marca','Veh2 Modelo','Veh2 Motor','Veh2 Circulacion',
+    'Cond2 Nombre','Cond2 Tipo Doc','Cond2 Doc','Cond2 Nac','Cond2 Edad','Cond2 EstCivil','Cond2 Domicilio','Cond2 Licencia','Cond2 LicExpedida','Cond2 Aseguradora','Cond2 Poliza','Cond2 Casco','Cond2 Cinturon',
+    'Veh2 Danos','Veh2 Acta Comprob',
+    'Test1 Nombre','Test1 Tipo Doc','Test1 Doc','Test1 Domicilio',
+    'Test2 Nombre','Test2 Tipo Doc','Test2 Doc','Test2 Domicilio',
+    'Reglas Infringidas','Observaciones'];
+  var lines=[hdrs.join(',')];
+  for(var i=0;i<rows.length;i++){
+    var r=rows[i];var vehs=[];try{vehs=JSON.parse(r.vehiculos);}catch(e){}var tests=[];try{tests=JSON.parse(r.testigos);}catch(e){}
+    function vf(idx,c){return vehs[idx]?(vehs[idx][c]||'--'):'--';}
+    function tf(idx,c){return tests[idx]?(tests[idx][c]||'--'):'--';}
+    var nac0=vf(0,'cond_nac')==='Otro'?vf(0,'cond_nac_otro'):vf(0,'cond_nac');
+    var nac1=vf(1,'cond_nac')==='Otro'?vf(1,'cond_nac_otro'):vf(1,'cond_nac');
+    var vals=[r.n,r.fecha_registro,r.hora_registro,r.inspector,r.legajo_insp,r.director,r.legajo_dir,
+      r.hora_siniestro,r.fecha_siniestro,r.localidad,r.lugar,r.zona,r.tipo_sup,r.superficie,r.clima,r.impacto,r.heridos,r.cant_vehiculos,
+      vf(0,'dominio'),vf(0,'tipo_doc_prop'),vf(0,'doc_prop'),vf(0,'propietario'),vf(0,'tipo'),vf(0,'marca'),vf(0,'modelo'),vf(0,'motor'),vf(0,'circulacion'),
+      vf(0,'cond_nombre'),vf(0,'cond_tipo_doc'),vf(0,'cond_doc'),nac0,vf(0,'cond_edad'),vf(0,'cond_ecivil'),vf(0,'cond_domicilio'),vf(0,'cond_licencia'),vf(0,'cond_lic_expedida'),vf(0,'cond_aseguradora'),vf(0,'cond_poliza'),vf(0,'casco'),vf(0,'cinturon'),
+      vf(0,'danos'),vf(0,'acta_comprobacion'),
+      vf(1,'dominio'),vf(1,'tipo_doc_prop'),vf(1,'doc_prop'),vf(1,'propietario'),vf(1,'tipo'),vf(1,'marca'),vf(1,'modelo'),vf(1,'motor'),vf(1,'circulacion'),
+      vf(1,'cond_nombre'),vf(1,'cond_tipo_doc'),vf(1,'cond_doc'),nac1,vf(1,'cond_edad'),vf(1,'cond_ecivil'),vf(1,'cond_domicilio'),vf(1,'cond_licencia'),vf(1,'cond_lic_expedida'),vf(1,'cond_aseguradora'),vf(1,'cond_poliza'),vf(1,'casco'),vf(1,'cinturon'),
+      vf(1,'danos'),vf(1,'acta_comprobacion'),
+      tf(0,'nombre'),tf(0,'tipo_doc'),tf(0,'doc'),tf(0,'domicilio'),
+      tf(1,'nombre'),tf(1,'tipo_doc'),tf(1,'doc'),tf(1,'domicilio'),
+      r.reglas,r.observaciones];
+    lines.push(vals.map(function(v){return '"'+String(v).replace(/"/g,'""')+'"';}).join(','));
+  }
+  var blob=new Blob(['\uFEFF'+lines.join('\n')],{type:'text/csv;charset=utf-8;'});
+  var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='siniestros_viales.csv';a.click();URL.revokeObjectURL(url);
+  showToast('CSV exportado','ok');
+}
+
+function showToast(msg,tipo){
+  var t=document.getElementById('toast');t.textContent=msg;
+  t.className='toast show '+(tipo||'');
+  setTimeout(function(){t.className='toast';},2500);
+}
 
 init();
 </script>
